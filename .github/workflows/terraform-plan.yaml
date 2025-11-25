@@ -33,18 +33,10 @@ jobs:
           aws s3 ls s3://tf-test-bucket --endpoint-url https://$CLOUDFLARE_ACCOUNT_ID.r2.cloudflarestorage.com
 
       - name: terraform init no backend
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref}}
-          fetch-depth: 0
         run: |
           terraform init
 
       - name: terraform init
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref}}
-          fetch-depth: 0
         run: |
           terraform init \
             -backend-config="bucket=$BUCKET_NAME" \
@@ -52,6 +44,7 @@ jobs:
             -backend-config="endpoint=$BUCKET_ENDPOINT" \
             -backend-config="access_key=$BUCKET_ACCESS_KEY_ID" \
             -backend-config="secret_key=$BUCKET_SECRET_ACCESS_KEY"
+            
       - name: terraform plan
         run: |
           terraform plan -out=tfplan \
