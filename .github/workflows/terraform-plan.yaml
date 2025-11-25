@@ -36,11 +36,9 @@ jobs:
           BUCKET_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY_ID }}
           BUCKET_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 ls s3://tf-test-bucket --endpoint-url $BUCKET_ENDPOINT
-
-      # - name: terraform init no backend
-      #   run: |
-      #     terraform init
+          curl https://ifconfig.me/ip
+          aws s3 ls s3://$BUCKET_NAME --endpoint-url $BUCKET_ENDPOINT
+          
 
       - name: terraform init
         run: |
