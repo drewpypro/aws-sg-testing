@@ -53,10 +53,5 @@ jobs:
 
       - name: terraform plan
         run: |
-          terraform plan -out=tfplan \
-            -backend-config="bucket=$BUCKET_NAME" \
-            -backend-config="key=$BUCKET_KEY" \
-            -backend-config="endpoint=$BUCKET_ENDPOINT" \
-            -backend-config="access_key=$BUCKET_ACCESS_KEY_ID" \
-            -backend-config="secret_key=$BUCKET_SECRET_ACCESS_KEY"
+          terraform plan
  
