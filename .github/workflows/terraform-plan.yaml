@@ -27,6 +27,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Verify Backend
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.BUCKET_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.BUCKET_SECRET_ACCESS_KEY}}
+          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+          BUCKET_KEY: ${{ secrets.BUCKET_KEY }}
+          BUCKET_ENDPOINT: ${{ secrets.BUCKET_ENDPOINT }}
+          BUCKET_ACCESS_KEY_ID: ${{ secrets.BUCKET_ACCESS_KEY_ID }}
+          BUCKET_SECRET_ACCESS_KEY: ${{ secrets.BUCKET_SECRET_ACCESS_KEY }}
         run: |
           aws s3 ls s3://tf-test-bucket --endpoint-url $BUCKET_ENDPOINT
 
