@@ -30,7 +30,7 @@ jobs:
         run: |
           aws configure set aws_access_key_id "$BUCKET_ACCESS_KEY_ID" --profile r2test
           aws configure set aws_secret_access_key "$BUCKET_SECRET_ACCESS_KEY" --profile r2test
-          aws s3 ls s3://tf-test-bucket --endpoint-url https://$CLOUDFLARE_ACCOUNT_ID.r2.cloudflarestorage.com
+          aws s3 ls s3://tf-test-bucket --endpoint-url https://$BUCKET_ENDPOINT
 
       - name: terraform init no backend
         run: |
@@ -44,7 +44,7 @@ jobs:
             -backend-config="endpoint=$BUCKET_ENDPOINT" \
             -backend-config="access_key=$BUCKET_ACCESS_KEY_ID" \
             -backend-config="secret_key=$BUCKET_SECRET_ACCESS_KEY"
-            
+
       - name: terraform plan
         run: |
           terraform plan -out=tfplan \
