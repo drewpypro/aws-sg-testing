@@ -28,9 +28,7 @@ jobs:
 
       - name: Verify Backend
         run: |
-          aws configure set aws_access_key_id $BUCKET_ACCESS_KEY_ID --profile r2test
-          aws configure set aws_secret_access_key $BUCKET_SECRET_ACCESS_KEY --profile r2test
-          aws s3 ls s3://tf-test-bucket --endpoint-url https://$BUCKET_ENDPOINT
+          aws s3 ls s3://tf-test-bucket --endpoint-url $BUCKET_ENDPOINT
 
       - name: terraform init no backend
         run: |
