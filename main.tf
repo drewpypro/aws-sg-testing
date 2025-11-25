@@ -10,7 +10,7 @@ variable vpc_id {
 variable aws_region {
   type = string
   description = "region for aws"
-  default = "us-east-1"
+  default = "us-west-2"
 }
 
 locals {
