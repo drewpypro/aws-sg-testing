@@ -57,4 +57,4 @@ jobs:
 
       - name: terraform apply
         run: |
-          terraform apply -input=false
+          terraform apply -auto-approve
