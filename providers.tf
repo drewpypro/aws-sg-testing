@@ -17,8 +17,5 @@ terraform {
     skip_s3_checksum            = true
     use_path_style              = true
     region                      = "wnam"
-    access_key                  = var.BUCKET_ACCESS_KEY_ID
-    secret_key                  = var.BUCKET_SECRET_ACCESS_KEY
-    endpoints                   = { s3 = "https://${var.CLOUDFLARE_ACCOUNT_ID}.r2.cloudstorage.com"}
   }
 }

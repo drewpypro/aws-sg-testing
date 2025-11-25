@@ -38,9 +38,9 @@ jobs:
         run: |
           aws s3 ls s3://tf-test-bucket --endpoint-url $BUCKET_ENDPOINT
 
-      - name: terraform init no backend
-        run: |
-          terraform init
+      # - name: terraform init no backend
+      #   run: |
+      #     terraform init
 
       - name: terraform init
         run: |
